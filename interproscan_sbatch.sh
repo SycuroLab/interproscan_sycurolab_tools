@@ -19,13 +19,6 @@ fasta_infile="/bulk/IMCshared_bulk/shared/shared_software/interproscan/interpros
 # The number of threads to use for interproscan.
 num_threads=8
 
-# Output formats to use for interproscan.
-# Optional, case-insensitive, comma separated list of output
-# formats. Supported formats are TSV, XML, JSON, and GFF3.
-# Default for protein sequences are TSV, XML and GFF3, or for
-# nucleotide sequences GFF3 and XML.
-output_formats="gff,tsv"
-
 # The output directory to write the interproscan output.
 output_dir="/bulk/IMCshared_bulk/shared/shared_software/interproscan/interproscan-5.65-97.0/testing"
 
@@ -36,5 +29,6 @@ mkdir -p $output_dir
 software_path="/bulk/IMCshared_bulk/shared/shared_software/interproscan/interproscan-5.65-97.0"
 
 # Run the interproscan.sh command.
-${software_path}/interproscan.sh --input ${fasta_infile} --formats ${output_formats} --iprlookup -goterms --cpu ${num_threads} --output-dir ${output_dir}
+echo "${software_path}/interproscan.sh --input ${fasta_infile} --iprlookup -goterms --cpu ${num_threads} --output-dir ${output_dir}"
+${software_path}/interproscan.sh --input ${fasta_infile} --iprlookup -goterms --cpu ${num_threads} --output-dir ${output_dir}
 

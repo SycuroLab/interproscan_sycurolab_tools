@@ -1,5 +1,7 @@
 # Instructions from https://interproscan-docs.readthedocs.io/en/latest/UserDocs.html
 
+### ALREADY COMPLETED SKIP TO CONDA INSTALL
+
 mkdir my_interproscan
 cd my_interproscan
 wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.65-97.0/interproscan-5.65-97.0-64-bit.tar.gz
@@ -28,7 +30,7 @@ $JAVA_HOME should point to the location of the JVM
 
 $JAVA_HOME/bin should be added to the $PATH
 
-
+##### INSTALL CONDA
 ## Creating the interproscan conda environment.
 
 conda create --name interproscan_env
@@ -38,6 +40,10 @@ conda install -c conda-forge perl
 conda install -c conda-forge openjdk
 
 
+# Try running interproscan_sbatch.sh first let me know if it works. Need to update readme with those instructions for others.
+sbatch interproscan_sbatch.sh 
+
+### Run this command if the above doesn't work and let me know. 
 python3 setup.py -f interproscan.properties
 
 ## InterProScan test run
@@ -49,7 +55,7 @@ Using the Local Pre-calculated Match Lookup Service (optional)
 precalculated.match.lookup.service.url=http://www.ebi.ac.uk/interpro/match-lookup
 
 
-You can then run the following two test case commands:
+You can then run the following test case command:
 
 ./interproscan.sh -i test_all_appl.fasta -f tsv -dp
 

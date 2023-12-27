@@ -1,0 +1,56 @@
+# Instructions from https://interproscan-docs.readthedocs.io/en/latest/UserDocs.html
+
+mkdir my_interproscan
+cd my_interproscan
+wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.65-97.0/interproscan-5.65-97.0-64-bit.tar.gz
+wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.65-97.0/interproscan-5.65-97.0-64-bit.tar.gz.md5
+
+# Recommended checksum to confirm the download was successful:
+md5sum -c interproscan-5.65-97.0-64-bit.tar.gz.md5
+# Must return *interproscan-5.65-97.0-64-bit.tar.gz: OK*
+# If not - try downloading the file again as it may be a corrupted copy.
+
+tar -pxvzf interproscan-5.65-97.0-*-bit.tar.gz
+
+Software requirements:
+
+64-bit Linux
+
+Perl 5 (default on most Linux distributions)
+
+Python 3 (InterProScan 5.30-69.0 onwards)
+
+Java JDK/JRE version 11 (InterProScan 5.37-76.0 onwards)
+
+Environment variables set
+
+$JAVA_HOME should point to the location of the JVM
+
+$JAVA_HOME/bin should be added to the $PATH
+
+
+## Creating the interproscan conda environment.
+
+conda create --name interproscan_env
+conda activate interproscan_env
+conda install -c conda-forge python
+conda install -c conda-forge perl
+conda install -c conda-forge openjdk
+
+
+python3 setup.py -f interproscan.properties
+
+## InterProScan test run
+
+Using the Local Pre-calculated Match Lookup Service (optional)
+
+# To turn off the use of the service, either use the -dp command line option or edit interproscan.properties and add a # to the start of the following line to comment out the line or delete the following line, near the bottom of the file:
+
+precalculated.match.lookup.service.url=http://www.ebi.ac.uk/interpro/match-lookup
+
+
+You can then run the following two test case commands:
+
+./interproscan.sh -i test_all_appl.fasta -f tsv -dp
+
+

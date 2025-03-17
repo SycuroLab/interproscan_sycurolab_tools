@@ -13,7 +13,10 @@ source ~/.bashrc
 # Activate the interproscan conda environment.
 conda activate interproscan_env
 
-cd /bulk/IMCshared_bulk/shared/shared_software/interproscan/interproscan-5.65-97.0
+#cd /bulk/IMCshared_bulk/shared/shared_software/interproscan/interproscan-5.65-97.0
+
+cd /bulk/IMCshared_bulk/shared/shared_software/interproscan/interproscan-5.73-104.0
+
 python3 setup.py -f interproscan.properties
 
 

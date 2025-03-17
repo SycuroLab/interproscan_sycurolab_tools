@@ -2,8 +2,8 @@
 
 ### ALREADY COMPLETED SKIP TO CONDA INSTALL
 
-mkdir my_interproscan
-cd my_interproscan
+mkdir interproscan
+cd interproscan
 wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.65-97.0/interproscan-5.65-97.0-64-bit.tar.gz
 wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.65-97.0/interproscan-5.65-97.0-64-bit.tar.gz.md5
 
